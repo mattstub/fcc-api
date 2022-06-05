@@ -1,8 +1,13 @@
 # fcc-api
 freeCodeCamp API Challenges
 
-- **Timestamp Microservice:** [Heroku]() | [Instructions](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice) | [Conditions](/documentation/01-timestamp.md)
-- **Request Header Parser:** [Heroku]() | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/request-header-parser-microservice) | [Conditions](/documentation/02-request-header-parser.md)
+**VERSIONING**
+- v0.1.0 - Fully Working API - *MDS - 6/2/2022*
+- v0.1.1 - Routed API with Area for Future Microservices to be added - *MDS - 6/5/2022*
+- v0.2.1 - API for Request Header Parser functioning locally and on Heroku, along with Timestamp Microservice - *MDS - 06/05/2022*
+
+- **Timestamp Microservice:** [Heroku](https://fcc-ms-api.herokuapp.com/api/timestamp/landing) | [Instructions](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice) | [Conditions](/documentation/01-timestamp.md)
+- **Request Header Parser:** [Heroku](https://fcc-ms-api.herokuapp.com/api/whoami/landing) | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/request-header-parser-microservice) | [Conditions](/documentation/02-request-header-parser.md)
 - **URL Shortener Microservice:** [Heroku]() | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/url-shortener-microservice) | [Conditions](/documentation/03-url-shortener.md)
 - **Exercise Tracker:** [Heroku]() | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/exercise-tracker) | [Conditions](/documentation/04-exercise-tracker.md)
 - **File Metadata Microservice:** [Heroku]() | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/file-metadata-microservice) | [Conditions](/documentation/05-file-metadata.md)
