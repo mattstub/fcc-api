@@ -4,7 +4,7 @@
 *will need to adjust this link at a later date*
 
 - v0.1.0 - Fully Working API - Completed on 6/2/2022
-- v1.0.0 - Documented Program
+- v0.1.1 - Routed API with Area for Future Microservices to be added - Completed on 6/5/2022
 
 ### Timestamp Microservice Conditions
 
