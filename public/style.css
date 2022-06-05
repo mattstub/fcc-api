@@ -26,6 +26,10 @@ hr {
 	margin-top: 40px;
 }
 
+form {
+  padding: 2rem 10rem;
+}
+
 code {
   font-family: monospace;
   padding: 2px;
@@ -43,4 +47,8 @@ li {
 
 a {
 	color: #2574A9;
+}
+
+#example {
+  padding-bottom: 4rem;
 }

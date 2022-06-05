@@ -14,12 +14,19 @@
 
 const express = require('express')
 const path = require('path')
+const bodyParser = require('body-parser')
+const mongo = require('mongodb')
+const mongoose = require('mongoose')
 const { logger } = require('./middleware/logEvents')
 const errorHandler = require('./middleware/errorHandler')
 const cors = require('cors')
-const routes = require('./routes')
 const app = express()
-const PORT= process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
+
+const jsonParser = bodyParser.json()
+const urlencodedParser = bodyParser.urlencoded({ extended : false })
+
+require('dotenv').config()
 
 // =================
 //   MIDDLEWARE
@@ -27,12 +34,24 @@ const PORT= process.env.PORT || 3000
 
 app.use(logger)
 app.use(errorHandler)
-                                
+
+// ==================
+//   DATABASE SETUP
+// ==================
+
+// mongoose.connect(process.env.DB_URI)
+mongoose.connect(process.env.DB_URI, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true 
+})
+
 // ==========================
 //   SERVER SETUP & ROUTING
 // ==========================
 
 app.use(cors({optionsSuccessStatus: 200}))  // some legacy browsers buck at 204
+app.use(bodyParser.urlencoded({ extended : false }))
+app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '/public'))) 
 app.use('/api', express.static(path.join(__dirname, '/public')))
 
@@ -41,6 +60,7 @@ app.use('/api', require('./routes'))
 app.use('/api/hello', require('./routes/hello'))
 app.use('/api/timestamp', require('./routes/timestamp'))
 app.use('/api/whoami', require('./routes/request'))
+app.use('/api/shorturl', require('./routes/short'))
 
 // ======================
 //   SERVER INITIALIZED
