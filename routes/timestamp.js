@@ -3,7 +3,7 @@
 // https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice
 // README file in Repository has conditions required for working API
 // Completed 06/02/2022 by Matt Stubenhofer
-// Modified 06/02/2022 by Matt Stubenhofer
+// Modified 06/05/2022 by Matt Stubenhofer
 
 const express = require('express')
 const router = express.Router()
