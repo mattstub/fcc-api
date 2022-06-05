@@ -34,6 +34,7 @@ app.use(errorHandler)
 
 app.use(cors({optionsSuccessStatus: 200}))  // some legacy browsers buck at 204
 app.use(express.static(path.join(__dirname, '/public'))) 
+app.use('/api', express.static(path.join(__dirname, '/public')))
 
 app.use('/', require('./routes/index'))
 app.use('/api', require('./routes'))
