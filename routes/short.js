@@ -24,9 +24,9 @@ router.post('/', (req, res) => {
     let client_url = req.body.url
     let suffix = shortid.generate()
     let newURL = new ShortURL({
-        short_url: '/api/shorturl/' + suffix,
         original_url: client_url,
-        suffix: suffix,
+        short_url: suffix
+        //suffix: suffix,
     })
     if(validateURL(client_url)) {
         newURL.save((err, doc) => {
