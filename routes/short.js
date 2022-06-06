@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
             })
         })
     } else {
-        res.json({ 'error': 'Wrong URL format, make sure you have a valid protocol and correct site' })
+        res.json({ error: 'invalid url' })
     }
 })
 
