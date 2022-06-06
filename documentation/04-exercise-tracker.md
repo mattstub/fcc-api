@@ -1,8 +1,8 @@
-# freeCodeCamp Request Header Parser API
+# freeCodeCamp Exercise Tracker API
 
 *placeholder for versioning & deployments*
 
-### Timestamp Microservice Conditions
+### Exercise Tracker Conditions
 
 **[Instructions For Project](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/exercise-tracker)**  
 **[Example Project](https://exercise-tracker.freecodecamp.rocks/)**  
