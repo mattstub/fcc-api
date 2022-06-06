@@ -26,7 +26,6 @@ router.post('/', (req, res) => {
     let newURL = new ShortURL({
         original_url: client_url,
         short_url: suffix
-        //suffix: suffix,
     })
     if(validateURL(client_url)) {
         newURL.save((err, doc) => {
