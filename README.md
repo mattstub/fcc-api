@@ -2,10 +2,15 @@
 freeCodeCamp API Challenges
 
 **VERSIONING**
-- v0.1.0 - Fully Working API - *MDS - 6/2/2022*
-- v0.1.1 - Routed API with Area for Future Microservices to be added - *MDS - 6/5/2022*
-- v0.2.1 - API for Request Header Parser functioning locally and on Heroku, along with Timestamp Microservice - *MDS - 06/05/2022*
+- v0.1.0 - *MDS - 06/02/2022* [^1]
+- v0.1.1 - *MDS - 06/05/2022* [^2]
+- v0.2.1 - *MDS - 06/05/2022* [^3]
 
+[^1] Timestamp Microservice fully functioning locally and remotely as an independent project on Heroku, 6/2/2022. Passing all freeCodeCamp conditions for Timestamp Microservice
+[^2] Moved Timestamp Microservice into a routed setup so that all APIs can be written in the same project. Working Locally and passing codes remotely.
+[^3] Request Header Parser Microservice functioning locally and remotely. Timestamp Microservice also still passing all conditions.
+
+### API Links
 - **Timestamp Microservice:** [Heroku](https://fcc-ms-api.herokuapp.com/api/timestamp/landing) | [Instructions](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice) | [Conditions](/documentation/01-timestamp.md)
 - **Request Header Parser:** [Heroku](https://fcc-ms-api.herokuapp.com/api/whoami/landing) | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/request-header-parser-microservice) | [Conditions](/documentation/02-request-header-parser.md)
 - **URL Shortener Microservice:** [Heroku]() | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/url-shortener-microservice) | [Conditions](/documentation/03-url-shortener.md)
@@ -19,3 +24,4 @@ Instead of building every project out as a separate entity, my goal is to write 
 ```bash
 heroku git:remote -a fcc-ms-api
 git push heroku main
+```
