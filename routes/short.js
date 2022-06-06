@@ -27,8 +27,8 @@ router.post('/', async (req, res) => {
     const suffix = shortid.generate()
     
     // If URL is not valid, an error JSON object will be displayed, matching criteria
-    if(!validURL.isUri(client_url)) {
-        res.status(401).json({ error: 'invalid url' })
+    if(!validURL.isWebUri(client_url)) {
+        res.json({ error: 'invalid url' })
     // Else If the URL is valid, Search for Existing
     } else {
         try {
