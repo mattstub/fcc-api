@@ -23,9 +23,6 @@ const cors = require('cors')
 const app = express()
 const PORT = process.env.PORT || 3000
 
-const jsonParser = bodyParser.json()
-const urlencodedParser = bodyParser.urlencoded({ extended : false })
-
 require('dotenv').config()
 
 // =================
@@ -39,10 +36,11 @@ app.use(errorHandler)
 //   DATABASE SETUP
 // ==================
 
-// mongoose.connect(process.env.DB_URI)
+// Server Timeout after 5s, instead of default 30s
 mongoose.connect(process.env.DB_URI, { 
     useNewUrlParser: true, 
-    useUnifiedTopology: true 
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000, 
 })
 
 // ==========================
