@@ -8,6 +8,7 @@ freeCodeCamp API Challenges
 - v0.2.2 - *MDS - 06/06/2022* [^4]
 - v0.2.3 - *MDS - 06/06/2022* [^5]
 - v0.3.1 - *MDS - 06/06/2022* [^6]
+- v0.3.2 - *MDS - 06/06/2022* [^7]
 
 [^1]: Timestamp Microservice fully functioning locally and remotely as an independent project on Heroku, 6/2/2022. Passing all freeCodeCamp conditions for Timestamp Microservice
 [^2]: Moved Timestamp Microservice into a routed setup so that all APIs can be written in the same project. Working Locally and passing codes remotely.
@@ -15,6 +16,7 @@ freeCodeCamp API Challenges
 [^4]: Revised URL Shortener Microservice to asynchronous. Also added in ability to check and see if URL is already in system, and return its value if so instead of putting another iteration in the system causing the system to fail on subsequent attempts. All conditions are working locally again, and hopefully with asynchronous feature there will be enough of a catch to not crash the heroku app out. Also added a timeout feature to the database connection so that it would timeout after 5 seconds instead of default 30 seconds. Hoping this will also keep the app from crashing.
 [^5]: Revised URL again to use the 'valid-url' package instead of a regex statement. Hopefully this will help us pass fcc conditions. In order for the valid-url package to finally work I had to use `isWebUri()` function instead of the original `isUri()` function that I initially saw in the documentation. Once this change was made all conditions were met.
 [^6]: File Metadata Microservice working locally using the multer package and storing the file in local memory instead of to a database or file server of some kind. Pushing to Heroku to test remotely and insure conditions are being passed on freeCodeCamp.
+[^7]: Changing up some of the routing from the original file, when testing through freeCodeCamp only conditions 1 & 2 pass or 3 pass, but never all three at the same time
 
 ### API Links
 - **Timestamp Microservice:** [Heroku](https://fcc-ms-api.herokuapp.com/api/timestamp/landing) | [Instructions](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice) | [Conditions](/documentation/01-timestamp.md)

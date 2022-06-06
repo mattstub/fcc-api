@@ -9,7 +9,7 @@ const path = require('path')
 const multer = require('multer')
 
 // Route - Index Page for Information Purposes
-router.get("/landing", (req, res) => {
+router.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'views', 'fileanalyse.html'))
 })
 
