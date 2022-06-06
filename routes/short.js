@@ -20,7 +20,7 @@ router.get("/landing", (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'views', 'short.html'))
 })
 
-router.post('/new', (req, res) => {
+router.post('/', (req, res) => {
     let client_url = req.body.url
     let suffix = shortid.generate()
     let newURL = new ShortURL({
