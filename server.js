@@ -60,7 +60,7 @@ app.use('/api/timestamp', require('./routes/timestamp'))
 app.use('/api/whoami', require('./routes/request'))
 app.use('/api/shorturl', require('./routes/short'))
 app.use('/api/users', require('./routes/users'))
-app.use('/api/fileanalyse', (require('./routes/fileanalyse .js')))
+app.use('/api/fileanalyse', (require('./routes/fileanalyse.js')))
 
 // ======================
 //   SERVER INITIALIZED

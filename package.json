@@ -1,6 +1,6 @@
 {
   "name": "fcc-api",
-  "version": "0.2.3",
+  "version": "0.3.1",
   "description": "freeCodeCamp Back End API Challenges in One Application",
   "main": "server.js",
   "scripts": {
@@ -17,6 +17,8 @@
     "freecodecamp",
     "node",
     "express",
+    "mongodb",
+    "mongoose",
     "heroku",
     "vscode",
     "npm"
