@@ -59,6 +59,8 @@ app.use('/api/hello', require('./routes/hello'))
 app.use('/api/timestamp', require('./routes/timestamp'))
 app.use('/api/whoami', require('./routes/request'))
 app.use('/api/shorturl', require('./routes/short'))
+app.use('/api/users', require('./routes/users'))
+app.use('/api/meta', (require('./routes/meta.js')))
 
 // ======================
 //   SERVER INITIALIZED
