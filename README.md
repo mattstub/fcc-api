@@ -12,7 +12,7 @@ freeCodeCamp API Challenges
 [^2]: Moved Timestamp Microservice into a routed setup so that all APIs can be written in the same project. Working Locally and passing codes remotely.
 [^3]: Request Header Parser Microservice functioning locally and remotely. Timestamp Microservice also still passing all conditions.
 [^4]: Revised URL Shortener Microservice to asynchronous. Also added in ability to check and see if URL is already in system, and return its value if so instead of putting another iteration in the system causing the system to fail on subsequent attempts. All conditions are working locally again, and hopefully with asynchronous feature there will be enough of a catch to not crash the heroku app out. Also added a timeout feature to the database connection so that it would timeout after 5 seconds instead of default 30 seconds. Hoping this will also keep the app from crashing.
-[^5]: Revised URL again to use the 'valid-url' package instead of a regex statement. Hopefully this will help us pass fcc conditions.
+[^5]: Revised URL again to use the 'valid-url' package instead of a regex statement. Hopefully this will help us pass fcc conditions. In order for the valid-url package to finally work I had to use `isWebUri()` function instead of the original `isUri()` function that I initially saw in the documentation. Once this change was made all conditions were met.
 
 ### API Links
 - **Timestamp Microservice:** [Heroku](https://fcc-ms-api.herokuapp.com/api/timestamp/landing) | [Instructions](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice) | [Conditions](/documentation/01-timestamp.md)

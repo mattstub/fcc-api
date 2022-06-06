@@ -4,8 +4,8 @@
 
 ### Timestamp Microservice Conditions
 
-[Instructions For Project](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/exercise-tracker)
-[Example Project](https://exercise-tracker.freecodecamp.rocks/)
+**[Instructions For Project](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/exercise-tracker)**  
+**[Example Project](https://exercise-tracker.freecodecamp.rocks/)**  
 
 Your responses should have the following structures.
 **Exercise:**

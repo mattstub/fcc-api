@@ -1,14 +1,14 @@
 # freeCodeCamp API Timestamp Microservice
 
-**[Main API Page](https://fcc-ms-api.herokuapp.com)**
-**[Heroku API - Timestamp Home](https://fcc-ms-api.herokuapp.com/api/timestamp/landing)**
-**[Heroku API - NOW](https://fcc-ms-api.herokuapp.com/api/timestamp)**
-**[Heroku API - YYYY-MM-DD](https://fcc-ms-api.herokuapp.com/api/timestamp/2015-12-25)**
-**[Heroku API - UNIX](https://fcc-ms-api.herokuapp.com/api/timestamp/1451001600000)**
+**[Main API Page](https://fcc-ms-api.herokuapp.com)**  
+**[Heroku API - Timestamp Home](https://fcc-ms-api.herokuapp.com/api/timestamp/landing)**  
+**[Heroku API - NOW](https://fcc-ms-api.herokuapp.com/api/timestamp)**  
+**[Heroku API - YYYY-MM-DD](https://fcc-ms-api.herokuapp.com/api/timestamp/2015-12-25)**  
+**[Heroku API - UNIX](https://fcc-ms-api.herokuapp.com/api/timestamp/1451001600000)**  
 
 ### Timestamp Microservice Conditions
 
-**[Instructions For Project](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice)**
+**[Instructions For Project](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice)**  
 **[Example Project](https://timestamp-microservice.freecodecamp.rocks/)**
 
 - [x] You should provide your own project, not the example URL.

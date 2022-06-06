@@ -4,8 +4,8 @@
 
 ### Timestamp Microservice Conditions
 
-[Instructions For Project](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/file-metadata-microservice)
-[Example Project](https://file-metadata-microservice.freecodecamp.rocks/)
+**[Instructions For Project](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/file-metadata-microservice)**  
+**[Example Project](https://file-metadata-microservice.freecodecamp.rocks/)**  
 
 **HINT:** You can use the `multer` npm package to handle file uploading.
 
