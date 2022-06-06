@@ -16,7 +16,6 @@ router.use(bodyParser.json())
 // Using Regex, validates the url to insure its a working url
 // Regex from https://gist.github.com/dperini/729294
 function validateURL(url) {
-
     var regex = /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/i;
     return regex.test(url);
 }
@@ -29,27 +28,41 @@ router.get("/landing", (req, res) => {
 // Route - POST API Endpoint
 // Post a working URL to the endpoint, a new ShortURL model is created with criteria
 // Original URL and ShortURL information is saved and pushed to mongoDB
-router.post('/', (req, res) => {
-    let client_url = req.body.url
-    let suffix = shortid.generate()
-    let newURL = new ShortURL({
-        original_url: client_url,
-        short_url: suffix
-    })
+router.post('/', async (req, res) => {
+    const client_url = req.body.url
+    const suffix = shortid.generate()
     
-    // If URL is valid, the record will be saved to the database
-    // JSON meeting freeCodeCamp criteria will be displayed upon save
-    if(validateURL(client_url)) {
-        newURL.save((err, doc) => {
-            if(err) return console.error(err)
-            res.json({ 
-                'original_url': newURL.original_url,
-                'short_url': newURL.short_url
-            })
-        })
     // If URL is not valid, an error JSON object will be displayed, matching criteria
+    if(!validateURL(client_url)) {
+        res.status(401).json({ error: 'invalid url' })
+    // Else If the URL is valid, Search for Existing
     } else {
-        res.json({ error: 'invalid url' })
+        try {
+            let findURL = await ShortURL.findOne({ original_url: client_url })
+            // If URL exists in DB, return existing object
+            // Set JSON meeting freeCodeCamp criteria
+            if(findURL) {
+                res.json({
+                    original_url: findURL.original_url,
+                    short_url: findURL.short_url
+                })
+            // Else If the URL does not exist in DB, create new object and save to DB
+            // JSON meeting freeCodeCamp criteria will be displayed upon save
+            } else {
+                findURL = new ShortURL({
+                    original_url: client_url,
+                    short_url: suffix
+                })
+                await findURL.save()
+                res.json({
+                    original_url: findURL.original_url,
+                    short_url: findURL.short_url                    
+                })
+            }
+        } catch (err) {
+            console.error(err)
+            res.status(500).json('Server error...')
+        }
     }
 })
 
