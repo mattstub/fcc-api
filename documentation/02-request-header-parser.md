@@ -1,7 +1,7 @@
 # freeCodeCamp Request Header Parser API
 
 **[Main API Page](https://fcc-ms-api.herokuapp.com)**
-**[Heroku API - Who Am I?](https://fcc-ms-api.herokuapp.com/api/whoami)**
+**[Heroku API - Who Am I?](https://fcc-ms-api.herokuapp.com/api/whoami/landing)**
 
 ### Request Header Parser API Conditions
 
