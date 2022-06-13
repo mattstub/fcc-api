@@ -6,10 +6,130 @@
 const express = require('express')
 const router = express.Router()
 const path = require('path')
+const { ExerciseUser, Exercise } = require('../models/exercises.js')
 
 // Route - Index Page for Information Purposes
 router.get("/landing", (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'views', 'exercise.html'))
+})
+
+// Route - Get: A list of all users
+// GET request to /api/users returns a list of all user JSON objects
+router.get('/', (req, res) => {
+  ExerciseUser.find({}, (err, data) => {
+    if (err || !data)
+      res.send('Error Finding Users..')
+    else
+      res.json(data)
+  })
+})
+
+// Route - Post Form Data for Created User
+// POST request to submit a created user, return a JSON object with username and _id
+router.post('/', async (req, res) => {
+  try {
+    const newUser = new ExerciseUser({ username: req.body.username })
+    const userExists = await ExerciseUser.findOne({ username: req.body.username }).exec()
+    if (userExists)
+      res.json({
+        'username': userExists.username,
+        '_id': userExists._id
+      })
+    else {  
+      newUser.save((err, data) => {
+        if (err || !data) 
+          res.send('Error Saving User..')
+        else
+          res.json({
+            username: data.username,
+            _id: data._id
+          })
+      })
+    }
+  } catch (error) {
+    console.error(error)
+  }
+})
+
+// Route - Post: post with description and duration of exercises
+// POST request with form data as specified
+// If no date is supplied with form, current timestamp will be used
+router.post('/:id/exercises', (req, res) => {
+  let tempDate = new Date(req.body.date)
+  
+  const id = req.params.id
+  const { description, duration } = req.body
+  
+  ExerciseUser.findById(id, (err, userData) => {
+    if(isNaN(tempDate))
+      tempDate = new Date()
+    if (err || !userData)
+      res.send('Could not find user')
+    else {
+      const newExercise = new Exercise({
+        userID: id,
+        description,
+        duration,
+        date: tempDate
+      })
+      newExercise.save((err, data) => {
+        if (err || !data)
+          res.send('There was an error saving the exercise')
+        else 
+          res.json({
+            username: userData.username,
+            description: data.description,
+            duration: data.duration,
+            date: new Date(data.date).toDateString(),            
+            _id: userData.id
+          })
+      })
+    }
+  })
+})
+
+// Route - Get: retrieve full exercise log of user
+// GET request with specified id of user to retrieve exercise logs
+router.get('/:id/logs', (req, res) => {
+  const { from, to, limit } = req.query
+  const { id } = req.params
+
+  ExerciseUser.findById(id, (err, userData) => {
+    if (err || !userData)
+      res.send('Could not find user')
+    else {
+      let dateFilter = {}
+      if (from)
+        dateFilter['$gte'] = new Date(from)
+      if (to)
+        dateFilter['$lte'] = new Date(to)
+      let filter = { userID: id }
+      if (from || to)
+        filter.date = dateFilter;
+
+      let boundary = limit || 100
+      
+      Exercise.find(filter).limit(boundary).exec((err, data) => {
+        if (err || !data)
+          res.json([])
+        else {
+          const count = data.length
+          const { username, _id } = userData
+          const log = data.map((l) => ({
+            description: l.description,
+            duration: l.duration,
+            date: new Date(l.date).toDateString()
+          }))
+          res.json({
+            'username': username, 
+            'count': count, 
+            '_id': _id,
+            'log': log
+          })   
+        }
+      })
+    }
+  })
 })
 
 module.exports = router

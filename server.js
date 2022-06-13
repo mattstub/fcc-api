@@ -37,7 +37,8 @@ app.use(errorHandler)
 // ==================
 
 // Server Timeout after 5s, instead of default 30s
-mongoose.connect(process.env.DB_URI, { 
+// TODO: Need to figure out way of handling multiple databases with current API configuration
+mongoose.connect(process.env.EXE_DB_URI, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 5000, 
@@ -54,13 +55,12 @@ app.use(express.static(path.join(__dirname, '/public')))
 app.use('/api', express.static(path.join(__dirname, '/public')))
 
 app.use('/', require('./routes/index'))
-app.use('/api', require('./routes'))
 app.use('/api/hello', require('./routes/hello'))
 app.use('/api/timestamp', require('./routes/timestamp'))
 app.use('/api/whoami', require('./routes/request'))
 app.use('/api/shorturl', require('./routes/short'))
 app.use('/api/users', require('./routes/users'))
-app.use('/api/fileanalyse', (require('./routes/fileanalyse.js')))
+app.use('/api/fileanalyse', (require('./routes/fileanalyse')))
 
 // ======================
 //   SERVER INITIALIZED

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html>
+
   <head>
     <title>Exercise Tracker | freeCodeCamp</title>
     <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico"  type="image/x-icon" />
@@ -8,6 +10,7 @@
   </head>
 
   <body>
+    
     <div class="container">
       <h1>Exercise tracker</h1>
       <form action="/api/users" method="post">
@@ -32,15 +35,17 @@
       <p><strong>[ ]</strong> = optional</p>
       <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
     </div>
+
     <footer>
-      <p>
+      <p id="example">
           By <a href="https://www.github.com/mattstub">Matt Stubenhofer</a> for <a href="https://www.freecodecamp.org/">freeCodeCamp.org</a> <br>
           <a href="https://github.com/mattstub/fcc-api">Source Code Repository</a> <br>
           Back End API Certification<br>
           June 2nd, 2022
         </p>
-  </footer>
-    <!-- TODO: THIS NEEDS TO BE REMOVED -->
+    </footer>
+
+    <!-- TODO: THIS NEEDS TO BE REMOVED? -->
     <script>
       const exerciseForm = document.getElementById("exercise-form");
 
@@ -51,5 +56,7 @@
         exerciseForm.submit();
       });
     </script>
+
   </body>
+
 </html>
