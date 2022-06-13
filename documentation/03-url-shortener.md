@@ -18,3 +18,4 @@
 #### Customization & Cleanup
 - [x] Optimize code and remove testing console logs
 - [x] Document operations of code
+- [ ] Add dual database functionality
