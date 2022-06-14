@@ -15,13 +15,17 @@ router.get("/landing", (req, res) => {
 
 // Route - Get: A list of all users
 // GET request to /api/users returns a list of all user JSON objects
-router.get('/', (req, res) => {
-  ExerciseUser.find({}, (err, data) => {            
-    if (err || !data)
-      res.send('Error Finding Users..')
-    else
-      res.json(data)                                
-  })
+router.get('/', async (req, res) => {
+  try {
+    await ExerciseUser.find({}, (err, data) => {            
+      if (err || !data)
+        res.send('Error Finding Users..')
+      else
+        res.json(data)                                
+    })
+  } catch (error) {
+    console.error(error)
+  }
 })
 
 // Route - Post Form Data for Created User
