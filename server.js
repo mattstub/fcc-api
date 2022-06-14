@@ -38,7 +38,7 @@ app.use(errorHandler)
 
 // Server Timeout after 5s, instead of default 30s
 // TODO: Need to figure out way of handling multiple databases with current API configuration
-mongoose.connect(process.env.EXE_DB_URI, { 
+mongoose.connect(process.env.DB_URI, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 5000, 

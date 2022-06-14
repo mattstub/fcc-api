@@ -16,20 +16,23 @@ router.get("/landing", (req, res) => {
 // Route - Get: A list of all users
 // GET request to /api/users returns a list of all user JSON objects
 router.get('/', (req, res) => {
-  ExerciseUser.find({}, (err, data) => {
+  ExerciseUser.find({}, (err, data) => {            
     if (err || !data)
       res.send('Error Finding Users..')
     else
-      res.json(data)
+      res.json(data)                                
   })
 })
 
 // Route - Post Form Data for Created User
 // POST request to submit a created user, return a JSON object with username and _id
+// Search the DB to see if the newUser already exists
+// IF the user already exists, return the user information, including ID in JSON format
+// ELSE save the new user and return the usern information in JSON format
 router.post('/', async (req, res) => {
   try {
     const newUser = new ExerciseUser({ username: req.body.username })
-    const userExists = await ExerciseUser.findOne({ username: req.body.username }).exec()
+    const userExists = await ExerciseUser.findOne({ username: req.body.username }).exec()   
     if (userExists)
       res.json({
         'username': userExists.username,
@@ -60,19 +63,19 @@ router.post('/:id/exercises', (req, res) => {
   const id = req.params.id
   const { description, duration } = req.body
   
-  ExerciseUser.findById(id, (err, userData) => {
-    if(isNaN(tempDate))
-      tempDate = new Date()
-    if (err || !userData)
+  ExerciseUser.findById(id, (err, userData) => {    // Locate the User to connect the Exercise Information With
+    if(isNaN(tempDate))                             // IF a date is not supplied on the form, as it is optional to submit with form
+      tempDate = new Date()                         // Provide a new date with current timestamp
+    if (err || !userData)                           // Check to insure the user exists in the system
       res.send('Could not find user')
     else {
-      const newExercise = new Exercise({
+      const newExercise = new Exercise({            // If the user does exist, tie the exercise information to the user id
         userID: id,
         description,
         duration,
         date: tempDate
       })
-      newExercise.save((err, data) => {
+      newExercise.save((err, data) => {             // Save the exercise information with user id for logging purposes later
         if (err || !data)
           res.send('There was an error saving the exercise')
         else 
@@ -91,25 +94,25 @@ router.post('/:id/exercises', (req, res) => {
 // Route - Get: retrieve full exercise log of user
 // GET request with specified id of user to retrieve exercise logs
 router.get('/:id/logs', (req, res) => {
-  const { from, to, limit } = req.query
-  const { id } = req.params
+  const { from, to, limit } = req.query                 // From, To, Limit are all query options that can be submitted with the request; create a form for this?
+  const { id } = req.params                             // Get the relevant user id information
 
-  ExerciseUser.findById(id, (err, userData) => {
+  ExerciseUser.findById(id, (err, userData) => {        // Locate the user being requested for logs
     if (err || !userData)
       res.send('Could not find user')
     else {
       let dateFilter = {}
-      if (from)
-        dateFilter['$gte'] = new Date(from)
-      if (to)
-        dateFilter['$lte'] = new Date(to)
-      let filter = { userID: id }
+      if (from)                                         // If a from paramter is submitted with the query
+        dateFilter['$gte'] = new Date(from)             // Set the lower end of the dateFilter object
+      if (to)                                           // If a to paramter is submitted with the query
+        dateFilter['$lte'] = new Date(to)               // Set the upper end of the dateFilter object
+      let filter = { userID: id }                       
       if (from || to)
         filter.date = dateFilter;
 
       let boundary = limit || 100
       
-      Exercise.find(filter).limit(boundary).exec((err, data) => {
+      Exercise.find(filter).limit(boundary).exec((err, data) => {     // Locate exercises from the users history, defined by the filter, set to a boundary, default boundary is 100
         if (err || !data)
           res.json([])
         else {

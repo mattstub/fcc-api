@@ -22,7 +22,7 @@ freeCodeCamp API Challenges
 - **Timestamp Microservice:** [Heroku](https://fcc-ms-api.herokuapp.com/api/timestamp/landing) | [Instructions](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice) | [Conditions](/documentation/01-timestamp.md)
 - **Request Header Parser:** [Heroku](https://fcc-ms-api.herokuapp.com/api/whoami/landing) | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/request-header-parser-microservice) | [Conditions](/documentation/02-request-header-parser.md)
 - **URL Shortener Microservice:** [Heroku](https://fcc-ms-api.herokuapp.com/api/shorturl/landing) | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/url-shortener-microservice) | [Conditions](/documentation/03-url-shortener.md)
-- **Exercise Tracker:** [Heroku (not working)]() | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/exercise-tracker) | [Conditions](/documentation/04-exercise-tracker.md)
+- **Exercise Tracker:** [Heroku](https://fcc-ms-api.herokuapp.com/api/users/landing) | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/exercise-tracker) | [Conditions](/documentation/04-exercise-tracker.md)
 - **File Metadata Microservice:** [Heroku](https://fcc-ms-api.herokuapp.com/api/fileanalyse/landing) | [Repl](https://boilerplate-project-filemetadata.mattstub.repl.co/) | [Instructions](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/file-metadata-microservice) | [Conditions](/documentation/05-file-metadata.md)
 
 ## Back End Certification of freeCodeCamp
@@ -32,8 +32,5 @@ Instead of building every project out as a separate entity, my goal is to write 
 Initially setting everything up in routes was extremely tedious, but only having to retrofit two microservices to fit this setup wasn't the worst thing in the world. With everything in place it makes for a much cleaner setup than just loading up the server file or having multiple directories. Also forced me to revisit previous express skills that I had forgotten about. Hopefully after this mornings commit I will only have two APIs left for this section of my certification. The URL shortener microservice was pretty in depth.
 *MDS - 06/06/2022*
 
-#### Heroku Notes
-```bash
-heroku git:remote -a fcc-ms-api
-git push heroku main
-```
+Trying to build out the exercise tracker inside of this routed structure was proving to be pretty difficult, so I built a replit barebones project just to make sure I was getting all of the conditions to meet properly before I tried to pull it inside of the final product. As of 06/14/2022 I still have some database connection issues to work through with Heroku to get a rough edit of the API up and running. I am going to try and bootstrap out a different setup so it doesn't seem so bland and to touch up a little on some front end work, even though design is definitely not something I love to do.
+*MDS - 06/14/2022*
