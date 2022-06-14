@@ -1,6 +1,8 @@
 # freeCodeCamp Exercise Tracker API
 
-*placeholder for versioning & deployments*
+**[Main API Page](https://fcc-ms-api.herokuapp.com)**  
+**[Heroku API - Exercise Tracker Microservice](https://fcc-ms-api.herokuapp.com/api/users/landing)**  
+**[Repl](https://boilerplate-project-exercisetracker.mattstub.repl.co)** 
 
 ### Exercise Tracker Conditions
 
@@ -61,6 +63,5 @@ Your responses should have the following structures.
 - [x] You can add `from`, `to` and `limit` parameters to a `GET /api/users/:_id/logs` request to retrieve part of the log of any user. `from` and `to` are dates in `yyyy-mm-dd` format. `limit` is an integer of how many logs to send back.
 
 #### Customization & Cleanup
-- [ ] Optimize code and remove testing console logs, deprecate file but keep copy for reference later
-- [ ] Document operations of code
-- [ ] Add dual database functionality
+- [x] Optimize code and remove testing console logs
+- [x] Document operations of code
