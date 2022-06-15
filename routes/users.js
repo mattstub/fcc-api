@@ -4,9 +4,11 @@
 // README file in Repository has conditions for working API
 
 const express = require('express')
+const mongoose = require('mongoose')
 const router = express.Router()
 const path = require('path')
-const { ExerciseUser, Exercise } = require('../models/exercises.js')
+const Exercise = require('../models/exercises')
+const ExUser = require('../models/exusers')
 
 // Route - Index Page for Information Purposes
 router.get("/landing", (req, res) => {
@@ -15,17 +17,13 @@ router.get("/landing", (req, res) => {
 
 // Route - Get: A list of all users
 // GET request to /api/users returns a list of all user JSON objects
-router.get('/', async (req, res) => {
-  try {
-    await ExerciseUser.find({}, (err, data) => {            
-      if (err || !data)
-        res.send('Error Finding Users..')
-      else
-        res.json(data)                                
-    })
-  } catch (error) {
-    console.error(error)
-  }
+router.get('/', (req, res) => {
+  ExUser.find({}, (err, data) => {            
+    if (err || !data)
+      res.send('Error Finding Users..')
+    else
+      res.json(data)                                
+  })
 })
 
 // Route - Post Form Data for Created User
@@ -35,14 +33,14 @@ router.get('/', async (req, res) => {
 // ELSE save the new user and return the usern information in JSON format
 router.post('/', async (req, res) => {
   try {
-    const newUser = new ExerciseUser({ username: req.body.username })
-    const userExists = await ExerciseUser.findOne({ username: req.body.username }).exec()   
-    if (userExists)
+    const newUser = new ExUser({ username: req.body.username })
+    const userExists = await ExUser.findOne({ username: req.body.username }).exec()   
+    if (userExists) {
       res.json({
         'username': userExists.username,
         '_id': userExists._id
       })
-    else {  
+    } else {  
       newUser.save((err, data) => {
         if (err || !data) 
           res.send('Error Saving User..')
@@ -67,7 +65,7 @@ router.post('/:id/exercises', (req, res) => {
   const id = req.params.id
   const { description, duration } = req.body
   
-  ExerciseUser.findById(id, (err, userData) => {    // Locate the User to connect the Exercise Information With
+  ExUser.findById(id, (err, userData) => {          // Locate the User to connect the Exercise Information With
     if(isNaN(tempDate))                             // IF a date is not supplied on the form, as it is optional to submit with form
       tempDate = new Date()                         // Provide a new date with current timestamp
     if (err || !userData)                           // Check to insure the user exists in the system
@@ -101,7 +99,7 @@ router.get('/:id/logs', (req, res) => {
   const { from, to, limit } = req.query                 // From, To, Limit are all query options that can be submitted with the request; create a form for this?
   const { id } = req.params                             // Get the relevant user id information
 
-  ExerciseUser.findById(id, (err, userData) => {        // Locate the user being requested for logs
+  ExUser.findById(id, (err, userData) => {              // Locate the user being requested for logs
     if (err || !userData)
       res.send('Could not find user')
     else {

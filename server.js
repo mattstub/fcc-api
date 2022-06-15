@@ -15,13 +15,14 @@
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
-const mongo = require('mongodb')
 const mongoose = require('mongoose')
+const { Schema } = mongoose
 const { logger } = require('./middleware/logEvents')
 const errorHandler = require('./middleware/errorHandler')
 const cors = require('cors')
 const app = express()
 const PORT = process.env.PORT || 3000
+const MONGODB = process.env.DB_URI
 
 require('dotenv').config()
 
@@ -38,12 +39,15 @@ app.use(errorHandler)
 
 // Server Timeout after 5s, instead of default 30s
 // TODO: Need to figure out way of handling multiple databases with current API configuration
-mongoose.connect(process.env.DB_URI, { 
+const DBconnect = mongoose.connect(process.env.DB_URI, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 5000, 
 })
 
+if (DBconnect)
+  console.log('DB Connected')
+  
 // ==========================
 //   SERVER SETUP & ROUTING
 // ==========================

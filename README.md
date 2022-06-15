@@ -9,6 +9,8 @@ freeCodeCamp API Challenges
 - v0.2.3 - *MDS - 06/06/2022* [^5]
 - v0.3.1 - *MDS - 06/06/2022* [^6]
 - v0.3.2 - *MDS - 06/06/2022* [^7]
+- v0.4.1 - *MDS - 06/13/2022* [^8]
+- v0.4.2 - *MDS - 06/14/2022* [^9]
 
 [^1]: Timestamp Microservice fully functioning locally and remotely as an independent project on Heroku, 6/2/2022. Passing all freeCodeCamp conditions for Timestamp Microservice
 [^2]: Moved Timestamp Microservice into a routed setup so that all APIs can be written in the same project. Working Locally and passing codes remotely.
@@ -17,6 +19,8 @@ freeCodeCamp API Challenges
 [^5]: Revised URL again to use the 'valid-url' package instead of a regex statement. Hopefully this will help us pass fcc conditions. In order for the valid-url package to finally work I had to use `isWebUri()` function instead of the original `isUri()` function that I initially saw in the documentation. Once this change was made all conditions were met.
 [^6]: File Metadata Microservice working locally using the multer package and storing the file in local memory instead of to a database or file server of some kind. Pushing to Heroku to test remotely and insure conditions are being passed on freeCodeCamp.
 [^7]: Changing up some of the routing from the original file, when testing through freeCodeCamp only conditions 1 & 2 pass or 3 pass, but never all three at the same time. Was still having issues so decided to just push code to a Repl project so it would pass freeCodeCamp conditions. Working properly on Heroku, but not passing a condition
+[^8]: Code was working properly with replit, but was having issues getting everything squared away with the routing. Was having problems with database connections when pushed to heroku so started going back through the code locally and was having issues. Need to figure out what is happening
+[^9]: Everything appears to be working properly now, able to create new users and push them up to the database. I believe my problem was because I wasn't exporting schema right and had two models in the same file, so split them into separate files and things began to work again. I need to read into standards about packaging up models in the same files or if they all need to be in their own separate file so they aren't causing problems like I was just running into. Going to push up to Heroku, hopefully it doesn't break again. Still have some design work to do for the complete package, and need to add a form for exercise logs before v1.0.0 is considered complete.
 
 ### API Links
 - **Timestamp Microservice:** [Heroku](https://fcc-ms-api.herokuapp.com/api/timestamp/landing) | [Instructions](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice) | [Conditions](/documentation/01-timestamp.md)
