@@ -1,6 +1,8 @@
 # fcc-api
 freeCodeCamp API Challenges
 
+**This Repository has been archived as of 2026-03-10**
+
 **VERSIONING**
 - v0.1.0 - *MDS - 06/02/2022* [^1]
 - v0.1.1 - *MDS - 06/05/2022* [^2]
@@ -38,3 +40,4 @@ Initially setting everything up in routes was extremely tedious, but only having
 
 Trying to build out the exercise tracker inside of this routed structure was proving to be pretty difficult, so I built a replit barebones project just to make sure I was getting all of the conditions to meet properly before I tried to pull it inside of the final product. As of 06/14/2022 I still have some database connection issues to work through with Heroku to get a rough edit of the API up and running. I am going to try and bootstrap out a different setup so it doesn't seem so bland and to touch up a little on some front end work, even though design is definitely not something I love to do.
 *MDS - 06/14/2022*
+
